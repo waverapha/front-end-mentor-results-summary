@@ -1,0 +1,29 @@
+@use "sass:math";
+@use "sass:map";
+
+$font-sizes: (
+  100: 1rem,
+  150: 1.15rem,
+  200: 1.25rem,
+  300: 1.5rem,
+  400: 1.75rem,
+  500: 2rem,
+  600: 2.25rem,
+  700: 2.5rem,
+  800: 2.75rem,
+  900: 3rem
+);
+
+// Mixin to set font-size and line-height properly
+@mixin font-normal($size: 100) {
+  $font-size: map.get($font-sizes, $size);
+  font-size: $font-size;
+  line-height: math.div($font-size, 1.2);
+}
+
+// Mixin to create an item stylized as circle
+@mixin circle ($radius) {
+  width: #{$radius}rem;
+  height: #{$radius}rem;
+  border-radius: 50%;
+}
